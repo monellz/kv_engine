@@ -1,3 +1,10 @@
+*.o
+
 engine_example/lib
 lib
-*.o
+
+bench/bench
+
+test/crash_test
+test/multi_thread_test
+test/single_thread_test

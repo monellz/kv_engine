@@ -10,24 +10,24 @@ struct SkipListNode {
     const K key;
     V value;
     SkipListNode* forward[MAX_LEVEL + 1];
-    SkipListNode(const K k): key(k) {
+    SkipListNode(const K& k): key(k) {
+        //memset(forward, NULL, sizeof(forward));
+        for (int i = 0; i <= MAX_LEVEL; ++i) {
+            forward[i] = nullptr;
+        }
+    }
+    SkipListNode(const K& k, const V& v): key(k), value(v) {
         //memset(forward, NULL, sizeof(forward));
         for (int i = 0; i <= MAX_LEVEL; ++i) {
             forward[i] = nullptr;
         }
     }
 
-    SkipListNode(const K k, const V v): key(k), value(v) {
-        //memset(forward, NULL, sizeof(forward));
-        for (int i = 0; i <= MAX_LEVEL; ++i) {
-            forward[i] = nullptr;
-        }
-    }
 };
 
 template<class K, class V, unsigned int MAX_LEVEL = 16>
 struct SkipList {
-typedef SkipListNode<K, V, MAX_LEVEL> Node;
+    typedef SkipListNode<K, V, MAX_LEVEL> Node;
     Node* head;
     K min_key;
     K max_key;

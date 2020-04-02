@@ -1,8 +1,11 @@
 #include <iostream>
 #include "skiplist.h"
+#include "include/polar_string.h"
+#include "util.h"
 
 using namespace std;
 
+using namespace polar_race;
 
 int main() {
     auto list = new SkipList<int, int>();
